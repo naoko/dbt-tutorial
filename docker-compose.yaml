@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  database:
+    image: "postgres:latest"
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: me # The PostgreSQL user (useful to connect to the database)
+      POSTGRES_PASSWORD: seecret # The PostgreSQL password (useful to connect to the database)
+      POSTGRES_DB: test_db # The PostgreSQL default database (automatically created at first launch)
+    volumes:
+      # In this example, we share the folder `db-data` in our root repository, with the default PostgreSQL data path.
+      - ./db-data/:/var/lib/postgresql/data/
